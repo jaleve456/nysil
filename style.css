@@ -42,7 +42,8 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
 :root {
   /* Background Colors: */
  /* --background-color: #eeeeee;*/
-  background-image: url(images/star-pattern.gif);
+  /*background-image: url(images/star-pattern.gif);*/
+  background-image: url(images/rainbowstarz.gif);
   --content-background-color: #ffffff;
   --sidebar-background-color: #ffffff;
 
@@ -63,6 +64,99 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
   --border: 0px solid #000000;
   --round-borders: 0px;
   --sidebar-width: 600px;
+}
+
+/* FRUTIGER AERO BUTTON STYLING */
+/* Authentic Frutiger Aero Button CSS */
+.frutiger-aero-button {
+  /* OKLCH Color System for accurate colors */
+  --hue: 140;
+  --sat: 0.2;
+  --glow-intensity: 0.7;
+  
+  /* Color Variables */
+  --fg: oklch(15% calc(var(--sat) * 0.5) var(--hue));
+  --bg: oklch(75% var(--sat) var(--hue) / 0.8);
+  --bg-dark: oklch(45% var(--sat) var(--hue) / 0.75);
+  --bottom-glow: radial-gradient(
+    farthest-corner at bottom center,
+    rgba(255, 255, 255, var(--glow-intensity)),
+    transparent
+  );
+  
+  /* Base Styling */
+  background-color: var(--bg);
+  background: 
+    var(--bottom-glow),
+    linear-gradient(to bottom, var(--bg-dark), var(--bg));
+  
+  border: 1px solid var(--bg);
+  border-radius: 9999px;
+  
+  /* Shadows and Effects */
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  
+  /* Typography */
+  color: var(--fg);
+  font-family: pixel, "Lucida Grande", "Lucida Sans Unicode", "Segoe UI", system-ui, sans-serif;
+  font-weight: 700;
+  text-shadow: 0 2px 0.5em rgba(0, 0, 0, 0.2);
+  
+  /* Layout */
+  cursor: pointer;
+  position: relative;
+  transition: all 300ms ease;
+  
+  /* Prevent text selection */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Top Highlight Effect */
+.frutiger-aero-button::after {
+  content: "";
+  position: absolute;
+  top: 4%;
+  left: 0.75em;
+  width: calc(100% - 1.5em);
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: inherit;
+  transition: background 400ms ease;
+  pointer-events: none;
+}
+
+/* Hover State */
+.frutiger-aero-button:hover,
+.frutiger-aero-button:focus {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Active State */
+.frutiger-aero-button:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transform: translateY(1px);
+}
+
+/* Size Variations */
+.frutiger-aero-button.small {
+  padding: 0.5em 1.5em;
+  font-size: 0.875rem;
+}
+
+.frutiger-aero-button.medium {
+  padding: 0.75em 2em;
+  font-size: 1rem;
+}
+
+.frutiger-aero-button.large {
+  padding: 1em 3em;
+  font-size: 1.125rem;
 }
 
 /* -------------------------------------------------------- */
@@ -108,7 +202,7 @@ body {
   /* background: linear-gradient(#ff9d00, #ff6a00); /*change these colors or remove this 
   background-attachment: fixed;*/
   background: var(--background-color);
-  background-image: url("");*/
+  background-image: url("");
   
 }
 
@@ -170,7 +264,7 @@ header {
   font-size: 1.2em;
   border: var(--border);
   border-radius: 20px;
-  background: linear-gradient(#00eeffc4, #00ff00c9);*/
+  background: linear-gradient(#00eeffc4, #00ff00c9);
 }
 
 /*.header,
@@ -199,12 +293,19 @@ border-radius: 20px;
   padding: var(--padding);  
 }
 
-.header-content, a {
+.header-content {
   padding: var(--padding);
 }
 
+.blinkes, ul {
+display:flex;
+align-items:baseline;
+justify-content: center;
+padding: var(--padding);
+}
+
 .header-title img {
-  height: 130px;
+  height: auto;
   width: auto;
   object-fit: contain;
   padding: var(--padding);
@@ -227,10 +328,10 @@ border-radius: 20px;
 }*/
 
 .header-title img {
-  height: 130px;
+  height: 80px;
   width: auto;
   object-fit: contain;
-  padding: var(--padding);
+  padding: 2px;
   filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
   transition: transform 0.2s ease;
   animation: bob 3s ease-in-out infinite;
@@ -390,7 +491,6 @@ nav .sidebar-title {
 }
 
 nav ul {
-  display: flex;
   margin: 0 -5px;
   padding: 0;
   list-style: none;
@@ -398,44 +498,15 @@ nav ul {
 }
 
 nav ul li {
-  border-right: 3px solid #e087d9;
   margin-bottom: 0;
   
 }
 
-/*nav > ul li > a,
-nav > ul li > strong {
-  width: 120px;        
-  text-align: center;
-  display: inline-block;
-  white-space: nowrap;
-  background: linear-gradient(#921092, #e087d9);
-  border: 3px solid #000;
-  c
-  font-weight: bold;
-  color: #ffffff;
-  text-shadow: 1px 1px 2px #000000; 
-  text-decoration: none;
-  box-shadow: 0 4px 0 #000;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-
-}*/
-
 nav > ul li > a,
 nav > ul li > strong {
-  width: 120px;
-  display:inline-block;
-  text-align: center;
-  background: linear-gradient(#921092, #e087d9);
-  margin-left: -5px;
-  font-weight: bold;
-  color: #ffffff;
-  border-right: 10px;
-  text-shadow: 1px 1px 2px #000000; 
+  width: 100%;
+  display: inline-block;
   text-decoration: none;
-  /*box-shadow: 0 4px 0 #000;*/
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-
 }
 
 nav ul li a:hover {
