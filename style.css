@@ -199,8 +199,7 @@ body {
   color: var(--text-color);
   font-family: var(--font);
   line-height: 1.2;
-  /* background: linear-gradient(#ff9d00, #ff6a00); /*change these colors or remove this 
-  background-attachment: fixed;*/
+  /* background: linear-gradient(#ff9d00, #ff6a00); /*change these colors or remove this */
   background: var(--background-color);
   background-image: url("");
   
@@ -261,55 +260,29 @@ main {
 
 header {
   grid-area: header;
+  display:inline-block;
+  text-align:center;
   font-size: 1.2em;
   border: var(--border);
   border-radius: 20px;
   background: linear-gradient(#00eeffc4, #00ff00c9);
 }
 
-/*.header,
-.site-name {
-height: 130px;
-width: auto;
-object-fit: contain;
-padding: var(--padding);
-font-size: 100px;
-font-family: starborn;
-font-weight: bold;
-text-align: center;
-color: #1a1077;
-border-radius: 20px;
-   text-shadow: 
-   0 3px 3px rgb(248, 248, 248),
-    0 1px 0 #150d61,
-    0 3px 0 #0d0839, 
-    0 5px 10px rgba(0,0,0,0.5); 
-
-}*/
 
 .header-content {
-  display:flex;
-  align-items: center;
+  width: 100%;
   padding: var(--padding);  
 }
 
-.header-content {
-  padding: var(--padding);
-}
-
-.blinkes, ul {
+.blinkies ul {
 display:flex;
+flex-direction: column;
 align-items:baseline;
 justify-content: center;
-padding: var(--padding);
 }
 
-.header-title img {
-  height: auto;
-  width: auto;
-  object-fit: contain;
-  padding: var(--padding);
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+.blinkies a {
+  display: block;
 }
 
 /* animated logo 1
@@ -328,8 +301,8 @@ padding: var(--padding);
 }*/
 
 .header-title img {
-  height: 80px;
-  width: auto;
+  height: auto;
+  width: 100px;
   object-fit: contain;
   padding: 2px;
   filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
@@ -495,9 +468,11 @@ nav ul {
   padding: 0;
   list-style: none;
   user-select: none;
+  display: inline-block;
 }
 
 nav ul li {
+  display: inline-block;
   margin-bottom: 0;
   
 }
@@ -549,7 +524,6 @@ header nav ul {
   flex-wrap: wrap;
   margin: 0;
   gap: 5px;
-  white-space: nowrap;
 }
 
 header nav ul li {
