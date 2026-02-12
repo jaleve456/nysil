@@ -42,8 +42,8 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
 :root {
   /* Background Colors: */
  /* --background-color: #eeeeee;*/
-  /*background-image: url(images/star-pattern.gif);*/
-  background-image: url(images/rainbowstarz.gif);
+  /*background-image: url(images/rainbowstarz.gif);*/
+  background-image: url(images/metro2.gif);
   --content-background-color: #ffffff;
   --sidebar-background-color: #ffffff;
 
@@ -150,7 +150,7 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
 }
 
 .frutiger-aero-button.medium {
-  padding: 0.75em 2em;
+  padding: 0.50em 2em;
   font-size: 1rem;
 }
 
@@ -201,7 +201,6 @@ body {
   line-height: 1.2;
   /* background: linear-gradient(#ff9d00, #ff6a00); /*change these colors or remove this */
   background: var(--background-color);
-  background-image: url("");
   
 }
 
@@ -259,46 +258,56 @@ main {
 /* -------------------------------------------------------- */
 
 header {
+  width: 100%;
   grid-area: header;
-  display:inline-block;
+  /*display:inline-block*/
+  display:block;
   text-align:center;
   font-size: 1.2em;
   border: var(--border);
   border-radius: 20px;
-  background: linear-gradient(#00eeffc4, #00ff00c9);
 }
 
 
-.header-content {
+/*.header-content {
   width: 100%;
   padding: var(--padding);  
+}*/
+
+.header-content {
+  padding: var(--padding);
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  border-radius: 20px;
+  min-width: 1000px;
+background: linear-gradient(#00eeffc4, #00ff00c9);*/
+border-radius: 16px;
+/*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(6.1px);*/
+border: 3px solid rgba(115, 218, 99, 0.5);
+  
 }
 
-.blinkies ul {
+/*.blinkies ul {
 display:flex;
 flex-direction: column;
 align-items:baseline;
 justify-content: center;
+}*/
+
+.blinkies ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .blinkies a {
   display: block;
 }
-
-/* animated logo 1
-.header-title img {
-  height: 130px;
-  width: auto;
-  object-fit: contain;
-  padding: var(--padding);
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
-  animation: bob 3s ease-in-out infinite;
-}
-
-@keyframes bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}*/
 
 .header-title img {
   height: auto;
@@ -326,10 +335,7 @@ main h1, main h2 {
   text-shadow: 2px 2px 4px rgba(27, 26, 26, 0.4);
 }
 
-.header-image img {
-  width: 100%;
-  height: auto;
-}
+
 
 /* -------------------------------------------------------- */
 /* SIDEBARS */
@@ -340,7 +346,10 @@ aside {
   border: var(--border);
   border-radius: var(--round-borders);
   overflow: hidden;
-  background: var(--sidebar-background-color);
+  /*background: var(--sidebar-background-color);*/
+  background: linear-gradient(#00eeffc4, #00ff00c9);
+  border-radius: 16px;
+  border: 3px solid rgba(115, 218, 99, 0.5);
   padding: var(--padding);
   color: var(--sidebar-text-color);
 }
@@ -455,6 +464,7 @@ footer a:focus {
 /* NAVIGATION */
 /* -------------------------------------------------------- */
 
+
 nav {
   margin-bottom: 3em;
 }
@@ -465,15 +475,17 @@ nav .sidebar-title {
 
 nav ul {
   margin: 0 -5px;
-  padding: 0;
+  padding: 2px;
   list-style: none;
   user-select: none;
-  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  
 }
 
 nav ul li {
   display: inline-block;
-  margin-bottom: 0;
+  margin-bottom: 0 5px;
   
 }
 
@@ -521,68 +533,23 @@ header nav {
 
 header nav ul {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  /*flex-wrap: wrap;*/
   margin: 0;
   gap: 5px;
-}
 
-header nav ul li {
-  position: relative;
-}
-
-header nav ul li:first-child > a {
-  padding-left: 0;
-}
-
-header nav ul li:last-child > a {
-  padding-right: 0;
-}
-
-/* Subnavigation (Drop-Down): */
-
-header nav ul ul {
-  background: var(--content-background-color);
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 10px;
-  padding: 0.5em;
-  z-index: 1;
-  border: var(--border);
-  min-width: 100%;
-  box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
-}
-
-header nav ul li:hover ul,
-header nav ul li:focus-within ul {
-  display: block;
-}
-
-header nav ul li strong {
   color: var(--link-color);
-  text-decoration: underline;
-  font-weight: normal;
 }
-
-header nav ul ul li a {
-  display: block;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* -------------------------------------------------------- */
-/* CONTENT */
-/* -------------------------------------------------------- */
 
 main {
-  line-height: 1.5;
+  background: linear-gradient(#00eeffc4, #00ff00c9);
+  border-radius: 16px;
 }
 
 main a,
-main a:visited {
-  color: var(--link-color);
+img {
+  align-items:center;
 }
-
 main a:hover,
 main a:focus {
   color: var(--link-color-hover);
@@ -600,6 +567,13 @@ main ol,
 main ul {
   margin: 0.5em 0;
   padding-left: 1.5em;
+}
+
+.show-scrollbar {
+  width:350px;
+  height:400px;
+  border: 1px solid black;
+  overflow:scroll;
 }
 
 main ol li,
@@ -714,25 +688,54 @@ main h6 {
   max-width: 100%;
 }
 
+
 .full-width-image {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.images {
+/*.images {
   display: flex;
   width: calc(100% + 5px + 5px);
   margin-left: -5px;
   margin-right: -5px;
+}*/
+
+.images {
+  display: flex;
+  gap: 10px;
+  margin: 5px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
 }
 
-.images img {
+.gallery-item {
+  display: flex;
+  flex-direction: column; /* stack image + description vertically */
+  width: auto; /* or whatever size you want */
+  text-align: center;
+}
+
+.gallery-item img {
   width: 100%;
   height: auto;
   padding: 5px;
-  margin: 0;
-  overflow: hidden;
+  transition: transform 0.2s ease;
+  animation: bob 3s ease-in-out infinite;
+}
+
+.gallery-item .description {
+  padding: 4px 0;
+  font-family: var(--font);
+}
+
+.gallery-item .description {
+  padding: 5px 0;
+  font-family: var(--font);
+}
+
+.gallery-item img:hover {
+  transform: translateY(-6px) scale(1.05);
 }
 
 /* -------------------------------------------------------- */
@@ -788,11 +791,34 @@ main h6 {
     font-size: 0.9em;
   }
 
+  .header-content {
+    min-width: 100%;
+    flex-direction: column;
+
+  }
+
+  .blinkies ul {
+    margin-top: 0px;
+    padding: 5px;
+  }
+
+  header nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   
   nav {
     padding: 0;
   }
 
+  nav ul {
+    white-space: normal;
+   }
+
+  nav ul li {
+    display: block;
+    margin: 6px 0;
+  }
   nav > ul {
     padding-top: 0.5em;
   }
