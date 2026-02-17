@@ -44,4 +44,14 @@ carouselSlide.addEventListener('transitionend', () => {
         counter = 1; // index of first real image
         carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
     }
-});
+})
+
+const hamburger = document.querySelector(".hamburger-icon");
+const navBar = document.querySelector(".nav-bar")
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navBar.classList.toggle("active");
+})
+
+
