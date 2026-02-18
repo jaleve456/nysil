@@ -186,6 +186,7 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
   height: 100%;
   object-fit: cover; 
   flex-shrink: 0;
+  z-index: -1;
 }
 
 body {
@@ -268,6 +269,9 @@ header {
   border-radius: 20px;
 }
 
+.hamburger-icon {
+  display:none;
+}
 
 
 /*.header-content {
@@ -470,6 +474,11 @@ footer a:focus {
   display:none;
 }
 
+.social-media ul {
+  list-style:none;
+}
+
+
 /* -------------------------------------------------------- */
 /* NAVIGATION */
 /* -------------------------------------------------------- */
@@ -490,6 +499,7 @@ nav ul {
   user-select: none;
   white-space: nowrap;
   text-align: center;
+  height: 15px;
   
 }
 
@@ -831,7 +841,7 @@ img
   display:block;
   position: absolute;
   padding: 20px;
-  filter: drop-shadow(0px 4px 8px #000);
+  filter: drop-shadow(0px 4px 10px #ffffff);
   top: 0;
   left:0;
   -webkit-transition: all 0.3s ease-in-out;
@@ -869,6 +879,8 @@ transform: translateY(-2px) scale(0.9);
   text-align: center;
   transition: 0.3s;
   border-radius: 10px;
+  height: 100%;
+  z-index: 10;
 }
 
 .nav-bar.active {
@@ -919,12 +931,18 @@ transform: translateY(-2px) scale(0.9);
 
   .images img {
     width: 100%;
+    z-index: -1;
   }
 
   #skip-to-content-link {
     font-size: 1rem;
   }
 
+  nav ul {
+    width: auto;
+    height: auto;
+  
+}
 
   .blinkies-footer ul {
   list-style: none;
@@ -937,19 +955,12 @@ transform: translateY(-2px) scale(0.9);
   display: block;
 }
 
-  .social-media
-  .social-media-links ul {
-  list-style: none;
-  text-decoration: none;
-  display: flex;
-  flex-direction: row;
+.social-media ul {
+  display:flex;
+  list-style:none;
 }
 
- .social-media
-.social-media-links a {
-   list-style: none;
-  display: block;
-}
+
 .gallery-item {
   display: block;
   padding: 2px;
