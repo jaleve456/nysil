@@ -254,6 +254,30 @@ main {
   border-radius: var(--round-borders);
 }
 
+.layout-other-pages {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template:"header" auto "main" auto "footer" auto / 1fr;
+  grid-gap: var(--margin);
+}
+
+.layout-other-pages header {
+  grid-area: header;
+}
+
+.layout-other-pages main {
+  grid-area: main;
+}
+
+.layout-other-pages footer {
+  grid-area: footer;
+}
+
+.layout-other-pages header {
+  width: 100%;
+}
 /* -------------------------------------------------------- */
 /* HEADER */
 /* -------------------------------------------------------- */
@@ -308,6 +332,7 @@ justify-content: center;
   list-style: none;
   display: flex;
   flex-direction: column;
+  padding: 1px;
 }
 
 .blinkies a {
@@ -366,6 +391,11 @@ aside {
 .right-sidebar {
   grid-area: rightSidebar;
 }
+
+/* -------------------------------------------------------- */
+/* SHOWS PAGE UI (desktop) */
+/* -------------------------------------------------------- */
+
 
 .sidebar-title {
   font-weight: bold;
@@ -475,7 +505,12 @@ footer a:focus {
 }
 
 .social-media ul {
+  display: flex;
   list-style:none;
+}
+
+.social-media-links {
+  
 }
 
 
@@ -514,6 +549,16 @@ nav > ul li > strong {
   width: 100%;
   display: inline-block;
   text-decoration: none;
+  text-align: center;
+}
+
+.nav-bar, nav > ul li > a,
+nav > ul li > strong {
+  width: 100%;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+
 }
 
 nav ul li a:hover {
@@ -794,6 +839,139 @@ main h6 {
 }
 
 /* -------------------------------------------------------- */
+/* SHOWS PAGE _desktop_ */
+/* -------------------------------------------------------- */
+
+.shows-section {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.show-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px; 
+  text-align: center;
+  border: 3px solid #000;
+  border-radius: 10px;
+
+}
+
+.show-card img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #000;
+}
+
+.show-date {
+  font-weight: bold;
+  font-family: var(--font);
+  font-size: 25px;
+}
+section > h1 {
+  font-size: 50px;
+  text-align: center;
+  font-family: var(--font);
+  margin-bottom: 20px;
+}
+
+.shows-section, .description {
+  font-family: var(--font);
+  font-weight: bold;
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #222;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+  padding: 10px;
+}
+
+.button-row button {
+  padding: 8px 14px;
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* -------------------------------------------------------- */
+/* SHOP PAGE _desktop_ */
+/* -------------------------------------------------------- */
+.shop-section {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.shop-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px; 
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+.shop-card img {
+  width: 100%;
+  height: auto;
+  /*border: 1px solid #000;*/
+}
+
+
+.shop-section, .description {
+  font-family: var(--font);
+  font-weight: bold;
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #222;
+}
+
+/* -------------------------------------------------------- */
+/* CONTACT PAGE _desktop_ */
+/* -------------------------------------------------------- */
+
+.contact-info {
+    margin: auto;
+}
+
+.contact-info ul {
+ list-style:none;
+}
+
+.contact-info li {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  list-style: none;
+  width: 100%;
+  padding: 3px;
+}
+
+#contact-textfield {
+  padding: 20px;
+}
+
+.contact-field-name::placeholder {
+font-family:Arial, Helvetica, sans-serif
+}
+
+.contact-info textarea {
+  min-height: 300px;
+}
+/* -------------------------------------------------------- */
 /* MOBILE RESPONSIVE */
 /* -------------------------------------------------------- */
 
@@ -807,6 +985,11 @@ main h6 {
     width: 100%;
     grid-template: "header" auto  "leftSidebar" auto "main" auto "footer" auto / 1fr;
     /* Confused by the grid? Check out my tutorial: https://petrapixel.neocities.org/coding/positioning-tutorial#grid */
+  }
+
+  .layout-other-pages {
+    width: 100%;
+    grid-template: "header" auto "main" auto "showsSection" auto" /1fr;
   }
 
 
@@ -979,15 +1162,16 @@ transform: translateY(-2px) scale(0.9);
 }
 
 
+/* MOBILE VERSION */
 .gallery-item {
-  display: block;
-  padding: 2px;
-  flex-direction: row; 
-  width: 300px;
+  display: inline-block;   
+  padding: 8px;
+  width: 45%;       
+  vertical-align: top;
 }
 
 .gallery-item img {
-  width: 200px;
+  width: 100%;             
   height: auto;
   padding: 2px;
   transition: transform 0.2s ease;
@@ -999,14 +1183,26 @@ transform: translateY(-2px) scale(0.9);
   font-family: var(--font);
 }
 
-.gallery-item, .gallery-button {
-  width: 40px;  
-}
-
 
 .gallery-item img:hover {
   transform: translateY(-6px) scale(1.05);
 }
 
+.gallery-item img:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+.shows-section img {
+  width: 100%;
+  display: inline-block;
+  flex-direction: column;
+}
+
+.show-card {
+  width: 100%; 
+}
+
+.shop-card {
+  width: 100%; 
 }
 
