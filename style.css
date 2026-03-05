@@ -736,6 +736,15 @@ main h6 {
   text-align: center;
 }
 
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column; /* stack image + description vertically */
+  width: auto; /* or whatever size you want */
+  text-align: center;
+}
+
 .gallery-item img {
   width: 100%;
   height: auto;
@@ -817,6 +826,15 @@ main h6 {
 
   }
 
+  .blinkies ul {
+    margin-top: 0px;
+    padding: 5px;
+  }
+
+  header nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   
 
 .header-content, {
