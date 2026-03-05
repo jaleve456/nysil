@@ -312,7 +312,7 @@ header {
   flex-wrap: nowrap;
   border-radius: 20px;
   min-width: 1000px;
-background: linear-gradient(#00eeffc4, #00ff00c9);*/
+background: linear-gradient(#00eeffc4, #00ff00c9);
 border-radius: 16px;
 /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(3px);
@@ -507,10 +507,6 @@ footer a:focus {
 .social-media ul {
   display: flex;
   list-style:none;
-}
-
-.social-media-links {
-  
 }
 
 
@@ -781,7 +777,6 @@ main h6 {
   text-align: center;
 }
 
-}
 
 .gallery-item {
   display: flex;
@@ -1020,7 +1015,7 @@ font-family:Arial, Helvetica, sans-serif
   }
   
 
-.header-content, {
+.header-content {
   display:block;
   filter: drop-shadow(0px 4px 8px #000);
 }
@@ -1206,3 +1201,4 @@ transform: translateY(-2px) scale(0.9);
   width: 100%; 
 }
 
+}
