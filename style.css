@@ -186,6 +186,7 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
   height: 100%;
   object-fit: cover; 
   flex-shrink: 0;
+  z-index: -1;
 }
 
 body {
@@ -266,6 +267,10 @@ header {
   font-size: 1.2em;
   border: var(--border);
   border-radius: 20px;
+}
+
+.hamburger-icon {
+  display:none;
 }
 
 
@@ -445,7 +450,8 @@ footer {
   overflow: hidden;
   font-size: 0.75em;
   padding: 15px;
-  background: var(--content-background-color);
+  background: linear-gradient(#00eeffc4, #00ff00c9);
+  border-radius: 10px;
   display: flex;
   justify-content: center;
 }
@@ -459,6 +465,19 @@ footer a:hover,
 footer a:focus {
   color: var(--link-color-hover);
 }
+
+  .blinkies-footer ul {
+    display: none;
+}
+
+.blinkies-footer a {
+  display:none;
+}
+
+.social-media ul {
+  list-style:none;
+}
+
 
 /* -------------------------------------------------------- */
 /* NAVIGATION */
@@ -480,6 +499,7 @@ nav ul {
   user-select: none;
   white-space: nowrap;
   text-align: center;
+  height: 15px;
   
 }
 
@@ -711,6 +731,15 @@ main h6 {
 
 .gallery-item {
   display: flex;
+  flex-direction: column; 
+  width: auto; 
+  text-align: center;
+}
+
+}
+
+.gallery-item {
+  display: flex;
   flex-direction: column; /* stack image + description vertically */
   width: auto; /* or whatever size you want */
   text-align: center;
@@ -780,7 +809,7 @@ main h6 {
     /* Confused by the grid? Check out my tutorial: https://petrapixel.neocities.org/coding/positioning-tutorial#grid */
   }
 
-  
+
   .right-sidebar { 
     display: none;
   }
@@ -807,6 +836,86 @@ main h6 {
     justify-content: center;
   }
   
+
+.header-content, {
+  display:block;
+  filter: drop-shadow(0px 4px 8px #000);
+}
+
+.header-content,
+img {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header-content,
+img
+.hamburger-icon  {
+  display:block;
+}
+
+.hamburger-icon {
+  display:block;
+  position: absolute;
+  padding: 20px;
+  filter: drop-shadow(0px 4px 10px #ffffff);
+  top: 0;
+  left:0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-icon.active:nth-child(2) {
+  opacity: 0;
+}
+
+/*.hamburger-icon.active:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-icon.active:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}*/
+
+.hamburger-icon.active:nth-child(1) {
+transform: translateY(-2px) scale(0.9);
+}
+
+.hamburger-icon.active:nth-child(3) {
+  transform: translateY(-2px) scale(0.9);
+}
+.nav-bar {
+  position:fixed;
+  left: -100%;
+  top: 70px;
+  gap: 0;
+  flex-direction:column;
+  padding:50px;
+  background: linear-gradient(#00eeffc4, #00ff00c9);
+  width:100%;
+  text-align: center;
+  transition: 0.3s;
+  border-radius: 10px;
+  height: 100%;
+  z-index: 10;
+}
+
+.nav-bar.active {
+  left: 0;
+}
+
+  .blinkies ul {
+    display: none;
+
+  }
+
+  header nav ul {
+    flex-direction: column;
+    /*(flex-wrap: wrap;
+    justify-content: center;*/
+  }
+    
   nav {
     padding: 0;
   }
@@ -840,9 +949,64 @@ main h6 {
 
   .images img {
     width: 100%;
+    z-index: -1;
   }
 
   #skip-to-content-link {
     font-size: 1rem;
   }
+
+  nav ul {
+    width: auto;
+    height: auto;
+  
 }
+
+  .blinkies-footer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.blinkies-footer a {
+   list-style: none;
+  display: block;
+}
+
+.social-media ul {
+  display:flex;
+  list-style:none;
+}
+
+
+.gallery-item {
+  display: block;
+  padding: 2px;
+  flex-direction: row; 
+  width: 300px;
+}
+
+.gallery-item img {
+  width: 200px;
+  height: auto;
+  padding: 2px;
+  transition: transform 0.2s ease;
+  animation: bob 3s ease-in-out infinite;
+}
+
+.gallery-item .description {
+  padding: 4px 0;
+  font-family: var(--font);
+}
+
+.gallery-item, .gallery-button {
+  width: 40px;  
+}
+
+
+.gallery-item img:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+}
+
