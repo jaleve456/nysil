@@ -798,14 +798,6 @@ main h6 {
   text-align: center;
 }
 
-
-.gallery-item {
-  display: flex;
-  flex-direction: column; /* stack image + description vertically */
-  width: auto; /* or whatever size you want */
-  text-align: center;
-}
-
 .gallery-item img {
   width: 250px;
   height: 250px;
@@ -815,7 +807,6 @@ main h6 {
 }
 
 .gallery-item .description {
-  padding: 5px 0;
   font-family: var(--font);
 }
 
@@ -824,8 +815,15 @@ main h6 {
 }
 
 .gallery-button {
-  margin-left: 220px;
+  margin-left: 25%;
+  padding: 8px 14px;
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 50%;
 } 
+
 
 /* -------------------------------------------------------- */
 /* ACCESSIBILITY */
@@ -1316,8 +1314,9 @@ transform: translateY(-2px) scale(0.9);
 }
 
 .gallery-item img {
+  margin-left:10px;
   width: 100%;             
-  height: auto;
+  height: 150px;
   padding: 2px;
   transition: transform 0.2s ease;
   animation: bob 3s ease-in-out infinite;
@@ -1378,5 +1377,4 @@ transform: translateY(-2px) scale(0.9);
 .the-statement-logo /*just for styling The Statement section on the front page of the site*/ {
   margin: -7%;
 }
-
 }
