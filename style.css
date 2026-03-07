@@ -39,11 +39,14 @@ font-family:'fenotype';
 src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
 }
  
+
 :root {
   /* Background Colors: */
  /* --background-color: #eeeeee;*/
   /*background-image: url(images/rainbowstarz.gif);*/
-  background-image: url(images/metro2.gif);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.174), rgba(0, 0, 0, 0.174)), /* dark overlay */
+    url(images/metro2.gif);
   --content-background-color: #ffffff;
   --sidebar-background-color: #ffffff;
 
@@ -65,6 +68,7 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
   --round-borders: 0px;
   --sidebar-width: 600px;
 }
+
 
 /* FRUTIGER AERO BUTTON STYLING */
 /* Authentic Frutiger Aero Button CSS */
@@ -173,12 +177,14 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
   margin: auto;
   border: 5px solid rgb(8, 28, 116);
   overflow: hidden; 
+  z-index: -1;
 }
 
 .carousel-slide {
   display:flex;
   width: 100%;
   height: 300px;
+  z-index: -1;
 }
 
 .carousel-slide img {
@@ -186,7 +192,9 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
   height: 100%;
   object-fit: cover; 
   flex-shrink: 0;
+  position: relative; 
   z-index: -1;
+
 }
 
 body {
@@ -252,6 +260,10 @@ main {
   background: var(--content-background-color);
   border: var(--border);
   border-radius: var(--round-borders);
+}
+
+.the-statement-logo /*just for styling The Statement section on the front page of the site*/ {
+  margin: -10%;
 }
 
 .layout-other-pages {
@@ -637,6 +649,15 @@ main ul {
   overflow:scroll;
 }
 
+.show-scrollbar img{
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid black;
+}
+
 main ol li,
 main ul li {
   margin-bottom: 0.2em;
@@ -786,16 +807,11 @@ main h6 {
 }
 
 .gallery-item img {
-  width: 100%;
-  height: auto;
-  padding: 5px;
+  width: 250px;
+  height: 250px;
+  padding: 15px;
   transition: transform 0.2s ease;
   animation: bob 3s ease-in-out infinite;
-}
-
-.gallery-item .description {
-  padding: 4px 0;
-  font-family: var(--font);
 }
 
 .gallery-item .description {
@@ -806,6 +822,10 @@ main h6 {
 .gallery-item img:hover {
   transform: translateY(-6px) scale(1.05);
 }
+
+.gallery-button {
+  margin-left: 220px;
+} 
 
 /* -------------------------------------------------------- */
 /* ACCESSIBILITY */
@@ -852,7 +872,12 @@ main h6 {
   text-align: center;
   border: 3px solid #000;
   border-radius: 10px;
-
+  /*glassmorphism effect*/
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.7px);
+  -webkit-backdrop-filter: blur(2.1px);
 }
 
 .show-card img {
@@ -915,15 +940,27 @@ section > h1 {
   width: 300px; 
   text-align: center;
   border: 2px solid #000;
+  /* glassmorphism effect*/
   border-radius: 10px;
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.1px);
+  -webkit-backdrop-filter: blur(2.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .shop-card img {
   width: 100%;
   height: auto;
+  transition: transform 0.2s ease;
+  animation: bob 3s ease-in-out infinite;
   /*border: 1px solid #000;*/
 }
 
+.shop-card img:hover {
+  transform: translateY(-6px) scale(1.05);
+}
 
 .shop-section, .description {
   font-family: var(--font);
@@ -939,33 +976,149 @@ section > h1 {
 /* -------------------------------------------------------- */
 
 .contact-info {
-    margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;   
 }
 
 .contact-info ul {
- list-style:none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;     
+  align-items: center;        
 }
 
 .contact-info li {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  list-style: none;
   width: 100%;
-  padding: 3px;
+  display: flex;
+  justify-content: center;   
+  padding: 6px 0;
 }
 
-#contact-textfield {
+#contact-textfield,
+.contact-info textarea,
+.contact-info input[type="text"],
+.contact-info input[type="email"],
+.contact-info input[type="tel"] {
+  width: 500px;              
+  max-width: 90%;             /* for mobile responsiveness */
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .contact-field-name::placeholder {
-font-family:Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .contact-info textarea {
   min-height: 300px;
 }
+
+.contact-options {
+  display: flex;
+  width: 20%
+}
+
+/* -------------------------------------------------------- */
+/* BANDS SPOTLIGHT SECTION _desktop_ */
+/* -------------------------------------------------------- */
+.bands-spotlight {
+  padding: 40px 20px;
+  background: linear-gradient(#00eeff80, #00ff0080);
+  text-align: center;
+  border-radius: 12px;
+  margin-top: 40px;
+}
+
+/* -------------------------------------------------------- */
+/* SHOP INFO page  */
+/* -------------------------------------------------------- */
+
+
+.product-section {
+  display: flex;
+}
+
+/* Left image */
+.product-img img {
+  width: 500px;
+  height: auto;
+}
+
+/* Right column */
+.product-info {
+  padding: 30px;
+  margin: auto;
+}
+
+.product-name {
+  font-size: 15px;
+}
+
+
+/* Size buttons */
+.size-selector button {
+  flex-wrap: wrap;
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Add to cart */
+.add-to-cart button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* -------------------------------------------------------- */
+/* SHOP INFO page  */
+/* -------------------------------------------------------- */
+
+
+
+.show-info-section {
+  display: flex;
+}
+
+
+/* Left image */
+.show-info-img img {
+  width: 500px;
+  height: auto;
+}
+
+
+/* Right column */
+.show-information {
+  padding: 30px;
+}
+
+
+.bands-performing {
+  font-size: 15px;
+}
+
+
+/* Size buttons */
+.ticket-purchase button {
+  flex-wrap: wrap;
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
 /* -------------------------------------------------------- */
 /* MOBILE RESPONSIVE */
 /* -------------------------------------------------------- */
@@ -1036,6 +1189,7 @@ img
 .hamburger-icon {
   display:block;
   position: absolute;
+  z-index: 9999; 
   padding: 20px;
   filter: drop-shadow(0px 4px 10px #ffffff);
   top: 0;
@@ -1044,17 +1198,14 @@ img
   transition: all 0.3s ease-in-out;
 }
 
+.hamburger-icon.active {
+  z-index: 9999;
+}
+
 .hamburger-icon.active:nth-child(2) {
   opacity: 0;
+  
 }
-
-/*.hamburger-icon.active:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger-icon.active:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}*/
 
 .hamburger-icon.active:nth-child(1) {
 transform: translateY(-2px) scale(0.9);
@@ -1065,18 +1216,17 @@ transform: translateY(-2px) scale(0.9);
 }
 .nav-bar {
   position:fixed;
+  z-index: 9999;
   left: -100%;
   top: 70px;
   gap: 0;
   flex-direction:column;
-  padding:50px;
+  padding:60px;
   background: linear-gradient(#00eeffc4, #00ff00c9);
   width:100%;
   text-align: center;
   transition: 0.3s;
   border-radius: 10px;
-  height: 100%;
-  z-index: 10;
 }
 
 .nav-bar.active {
@@ -1171,6 +1321,7 @@ transform: translateY(-2px) scale(0.9);
   padding: 2px;
   transition: transform 0.2s ease;
   animation: bob 3s ease-in-out infinite;
+
 }
 
 .gallery-item .description {
@@ -1183,9 +1334,6 @@ transform: translateY(-2px) scale(0.9);
   transform: translateY(-6px) scale(1.05);
 }
 
-.gallery-item img:hover {
-  transform: translateY(-6px) scale(1.05);
-}
 
 .shows-section img {
   width: 100%;
@@ -1195,10 +1343,40 @@ transform: translateY(-2px) scale(0.9);
 
 .show-card {
   width: 100%; 
+  
 }
 
 .shop-card {
   width: 100%; 
+}
+
+/*Product Page --mobile-- */
+#content .product-section {
+ margin: auto;
+}
+
+  .product-section {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  .product-section img {
+    width: 400px
+  }
+
+
+  .product-info {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .contact-options {
+  width: auto;
+}
+
+.the-statement-logo /*just for styling The Statement section on the front page of the site*/ {
+  margin: -7%;
 }
 
 }
