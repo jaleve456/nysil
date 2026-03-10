@@ -249,11 +249,20 @@ a:focus {
   width: 1000px;
   display: grid;
   grid-gap: var(--margin);
-  grid-template: "header header" auto "leftSidebar main" auto "footer footer" auto / var(--sidebar-width) auto;
+  grid-template: "header header" auto "leftSidebar main" auto "bands-spotlight main" auto "footer footer" auto / var(--sidebar-width) auto;
   /* Confused by the grid? Check out my tutorial: https://petrapixel.neocities.org/coding/positioning-tutorial#grid */
 }
 
 main {
+  grid-area: main;
+  overflow-y: auto;
+  padding: var(--padding);
+  background: var(--content-background-color);
+  border: var(--border);
+  border-radius: var(--round-borders);
+}
+
+.bands-spotlight {
   grid-area: main;
   overflow-y: auto;
   padding: var(--padding);
@@ -516,11 +525,67 @@ footer a:focus {
   display:none;
 }
 
-.social-media ul {
-  display: flex;
-  list-style:none;
+/* Entire footer */
+.site-footer {
+  padding: 10px;
 }
 
+/* TOP ROW: 3 columns */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LEFT */
+.footer-updates a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* CENTER */
+.footer-center {
+  text-align: center;
+  margin-right: 200px;
+  margin-left: 200px;
+}
+
+.footer-center p {
+  font-family: var(--font);
+  font-size: 15px;
+  margin: 5px;
+}
+
+
+.footer-logo {
+  width: 100px;
+  display: block;
+  margin: 0 auto 5px;
+}
+
+/* RIGHT */
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+
+/* NAV BAR UNDER EVERYTHING */
+.footer-nav-bar ul {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  
+}
+
+.footer-nav-bar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
 
 /* -------------------------------------------------------- */
 /* NAVIGATION */
@@ -824,6 +889,37 @@ main h6 {
   width: 50%;
 } 
 
+.about-button {
+  margin-left: 25%;
+  padding: 8px 14px;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 50%;
+} 
+
+body::after {
+  /* dark overlay layer - visible when we fire .cd-quick-view */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(71, 55, 78, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s 0s, visibility 0s .3s;
+}
+
+@media only screen and (min-width: 1024px) {
+  body.overlay-layer::after {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .3s 0s, visibility 0s 0s;
+  }
+}
+
 
 /* -------------------------------------------------------- */
 /* ACCESSIBILITY */
@@ -968,6 +1064,30 @@ section > h1 {
   line-height: 1.4;
   color: #222;
 }
+
+.quick-view-btn {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 30px;
+  background: linear-gradient(#000);
+  border: 2px solid #000;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  color: #ffffff
+}
+
+.shop-card:hover .quick-view-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(-5px);
+}
+
 
 /* -------------------------------------------------------- */
 /* CONTACT PAGE _desktop_ */
@@ -1299,11 +1419,36 @@ transform: translateY(-2px) scale(0.9);
   display: block;
 }
 
+  /* Stack footer columns */
+  .footer-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-center {
+    margin-left: 80%;
+    justify-content: center;
+  }
+
+  .footer-top .footer-updates {
+    margin-left: 40%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
 .social-media ul {
   display:flex;
   list-style:none;
 }
 
+.social-media-links img {
+  width: 30px;
+  height: 30px;
+}
 
 /* MOBILE VERSION */
 .gallery-item {
