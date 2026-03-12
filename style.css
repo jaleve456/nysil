@@ -172,19 +172,18 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
   cursor: url('https://ani.cursors-4u.net/games/gam-16/gam1537.cur'), auto !important;
 }
 
-.carousel-container{
+.carousel-container {
   width: 100%;
   margin: auto;
   border: 5px solid rgb(8, 28, 116);
   overflow: hidden; 
-  z-index: -1;
 }
+
 
 .carousel-slide {
   display:flex;
   width: 100%;
   height: 300px;
-  z-index: -1;
 }
 
 .carousel-slide img {
@@ -192,9 +191,8 @@ src: url(https://dl.dropbox.com/s/klo6yfrf62916qp/02.10FEN.TTF);
   height: 100%;
   object-fit: cover; 
   flex-shrink: 0;
-  position: relative; 
+  position:relative;
   z-index: -1;
-
 }
 
 body {
@@ -260,6 +258,7 @@ main {
   background: var(--content-background-color);
   border: var(--border);
   border-radius: var(--round-borders);
+  overflow-x: hidden; /* to remove horizontal scollbar */
 }
 
 .bands-spotlight {
@@ -272,7 +271,9 @@ main {
 }
 
 .the-statement-logo /*just for styling The Statement section on the front page of the site*/ {
-  margin: -10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .layout-other-pages {
@@ -396,7 +397,6 @@ aside {
   grid-area: aside;
   border: var(--border);
   border-radius: var(--round-borders);
-  overflow: hidden;
   /*background: var(--sidebar-background-color);*/
   background: linear-gradient(#00eeffc4, #00ff00c9);
   border-radius: 16px;
@@ -735,7 +735,7 @@ main ol {
 
 main blockquote {
   background: rgba(0, 0, 0, 0.1);
-  padding: 15px;
+  padding: 10px;
   margin: 1em 0;
   border-radius: 10px;
 }
@@ -1143,13 +1143,7 @@ section > h1 {
 /* -------------------------------------------------------- */
 /* BANDS SPOTLIGHT SECTION _desktop_ */
 /* -------------------------------------------------------- */
-.bands-spotlight {
-  padding: 40px 20px;
-  background: linear-gradient(#00eeff80, #00ff0080);
-  text-align: center;
-  border-radius: 12px;
-  margin-top: 40px;
-}
+
 
 /* -------------------------------------------------------- */
 /* SHOP INFO page  */
@@ -1236,6 +1230,49 @@ section > h1 {
   cursor: pointer;
 }
 
+/* -------------------------------------------------------- */
+/* IMG MODAL */
+/* -------------------------------------------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+#modalCaption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+
 
 /* -------------------------------------------------------- */
 /* MOBILE RESPONSIVE */
@@ -1243,6 +1280,39 @@ section > h1 {
 
 /* CSS Code for devices < 800px */
 @media (max-width: 800px) {
+
+  .nav-bar {
+  position: fixed;
+  left: -110%;
+  z-index: 9999;
+  top: 70px;
+  gap: 0;
+  flex-direction: column;
+  padding: 60px;
+  background: linear-gradient(#00eeffc4, #00ff00c9);
+  width: 100%;
+  text-align: center;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  position: relative;
+  z-index: 0;
+}
+
+.left-sidebar,
+.carousel-container,
+.header-content {
+  transform: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  isolation: auto !important;
+  z-index: auto !important;
+}
+
   body {
     font-size: 14px;
   }
@@ -1251,11 +1321,6 @@ section > h1 {
     width: 100%;
     grid-template: "header" auto  "leftSidebar" auto "main" auto "footer" auto / 1fr;
     /* Confused by the grid? Check out my tutorial: https://petrapixel.neocities.org/coding/positioning-tutorial#grid */
-  }
-
-  .layout-other-pages {
-    width: 100%;
-    grid-template: "header" auto "main" auto "showsSection" auto" /1fr;
   }
 
 
@@ -1268,6 +1333,7 @@ section > h1 {
     padding: 9px;
     font-size: 0.9em;
   }
+
 
   .header-content {
     min-width: 100%;
@@ -1332,23 +1398,15 @@ transform: translateY(-2px) scale(0.9);
 .hamburger-icon.active:nth-child(3) {
   transform: translateY(-2px) scale(0.9);
 }
-.nav-bar {
-  position:fixed;
-  z-index: 9999;
-  left: -100%;
-  top: 70px;
-  gap: 0;
-  flex-direction:column;
-  padding:60px;
-  background: linear-gradient(#00eeffc4, #00ff00c9);
-  width:100%;
-  text-align: center;
-  transition: 0.3s;
-  border-radius: 10px;
-}
+
 
 .nav-bar.active {
-  left: 0;
+    position: fixed;
+    top: 70px; 
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
 }
 
   .blinkies ul {
@@ -1520,6 +1578,24 @@ transform: translateY(-2px) scale(0.9);
 }
 
 .the-statement-logo /*just for styling The Statement section on the front page of the site*/ {
-  margin: -7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+  .modal-content {
+    width: 100%;
+  }
+
+   .show-info-section {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+    .show-info-img img {
+    width: 100%;
+    padding: 10px;e
+  }
+
 }
